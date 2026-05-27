@@ -1,6 +1,7 @@
 import json
 import logging
 from collections import Counter
+from typing import Any, Dict, List, Tuple
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -17,7 +18,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def load_data(filename):
+def load_data(filename: str) -> List[Dict[str, Any]]:
     """Загрузка данных из JSON файла"""
     logger.info(f"Загрузка данных из файла: {filename}")
     try:
@@ -39,7 +40,7 @@ def load_data(filename):
         raise
 
 
-def calculate_metrics(tracks):
+def calculate_metrics(tracks: List[Dict[str, Any]]) -> Tuple[float, Tuple[str, int], Dict[str, Any]]:
     """Расчёт всех метрик"""
     total_time = sum(t['duration_minutes'] * t['listens'] for t in tracks)
 
@@ -51,7 +52,7 @@ def calculate_metrics(tracks):
     return total_time, top_genre, top_track
 
 
-def create_plotly_visualization(tracks):
+def create_plotly_visualization(tracks: List[Dict[str, Any]]) -> None:
     """Интерактивные графики с Plotly"""
     df = pd.DataFrame(tracks)
 
@@ -105,7 +106,7 @@ def create_plotly_visualization(tracks):
     fig.show()
 
 
-def create_seaborn_visualization(tracks):
+def create_seaborn_visualization(tracks: List[Dict[str, Any]]) -> None:
     """Статистические графики с Seaborn"""
     df = pd.DataFrame(tracks)
     df['total_listen_time'] = df['duration_minutes'] * df['listens']
@@ -139,7 +140,7 @@ def create_seaborn_visualization(tracks):
     plt.show()
 
 
-def print_report(tracks, total_time, top_genre, top_track):
+def print_report(tracks: List[Dict[str, Any]], total_time: float, top_genre: Tuple[str, int], top_track: Dict[str, Any]) -> None:
     """Вывод текстового отчёта"""
     logger.info("Формирование текстового отчёта")
     print("=" * 60)
@@ -159,7 +160,7 @@ def print_report(tracks, total_time, top_genre, top_track):
     print("=" * 60)
 
 
-def main():
+def main() -> None:
     """Основная функция"""
     try:
         tracks = load_data('music.json')
