@@ -1,0 +1,142 @@
+[
+    {
+        "track_name": "Bohemian Rhapsody",
+        "artist": "Queen",
+        "genre": "Rock",
+        "duration_minutes": 5.92,
+        "listens": 150
+    },
+    {
+        "track_name": "Billie Jean",
+        "artist": "Michael Jackson",
+        "genre": "Pop",
+        "duration_minutes": 4.54,
+        "listens": 200
+    },
+    {
+        "track_name": "Smells Like Teen Spirit",
+        "artist": "Nirvana",
+        "genre": "Rock",
+        "duration_minutes": 5.02,
+        "listens": 180
+    },
+    {
+        "track_name": "Imagine",
+        "artist": "John Lennon",
+        "genre": "Pop",
+        "duration_minutes": 3.03,
+        "listens": 120
+    },
+    {
+        "track_name": "Hotel California",
+        "artist": "Eagles",
+        "genre": "Rock",
+        "duration_minutes": 6.30,
+        "listens": 160
+    },
+    {
+        "track_name": "Blinding Lights",
+        "artist": "The Weeknd",
+        "genre": "Pop",
+        "duration_minutes": 3.20,
+        "listens": 250
+    },
+    {
+        "track_name": "Stairway to Heaven",
+        "artist": "Led Zeppelin",
+        "genre": "Rock",
+        "duration_minutes": 8.02,
+        "listens": 140
+    },
+    {
+        "track_name": "Shape of You",
+        "artist": "Ed Sheeran",
+        "genre": "Pop",
+        "duration_minutes": 3.53,
+        "listens": 220
+    },
+    {
+        "track_name": "Sweet Child O Mine",
+        "artist": "Guns N Roses",
+        "genre": "Rock",
+        "duration_minutes": 5.56,
+        "listens": 170
+    },
+    {
+        "track_name": "Bad Guy",
+        "artist": "Billie Eilish",
+        "genre": "Electronic",
+        "duration_minutes": 3.14,
+        "listens": 190
+    },
+    {
+        "track_name": "Lose Yourself",
+        "artist": "Eminem",
+        "genre": "Hip-Hop",
+        "duration_minutes": 5.26,
+        "listens": 210
+    },
+    {
+        "track_name": "Rolling in the Deep",
+        "artist": "Adele",
+        "genre": "Pop",
+        "duration_minutes": 3.48,
+        "listens": 185
+    },
+    {
+        "track_name": "Back in Black",
+        "artist": "AC/DC",
+        "genre": "Rock",
+        "duration_minutes": 4.15,
+        "listens": 155
+    },
+    {
+        "track_name": "Uptown Funk",
+        "artist": "Bruno Mars",
+        "genre": "Pop",
+        "duration_minutes": 4.30,
+        "listens": 230
+    },
+    {
+        "track_name": "Numb",
+        "artist": "Linkin Park",
+        "genre": "Rock",
+        "duration_minutes": 3.07,
+        "listens": 175
+    },
+    {
+        "track_name": "One Dance",
+        "artist": "Drake",
+        "genre": "Hip-Hop",
+        "duration_minutes": 2.54,
+        "listens": 240
+    },
+    {
+        "track_name": "Levels",
+        "artist": "Avicii",
+        "genre": "Electronic",
+        "duration_minutes": 3.18,
+        "listens": 165
+    },
+    {
+        "track_name": "Someone Like You",
+        "artist": "Adele",
+        "genre": "Pop",
+        "duration_minutes": 4.45,
+        "listens": 195
+    },
+    {
+        "track_name": "Thunderstruck",
+        "artist": "AC/DC",
+        "genre": "Rock",
+        "duration_minutes": 4.52,
+        "listens": 145
+    },
+    {
+        "track_name": "Closer",
+        "artist": "The Chainsmokers",
+        "genre": "Electronic",
+        "duration_minutes": 4.05,
+        "listens": 205
+    }
+]
