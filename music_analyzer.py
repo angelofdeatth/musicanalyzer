@@ -10,8 +10,21 @@ from plotly.subplots import make_subplots
 
 def load_data(filename):
     """Загрузка данных из JSON файла"""
-    with open(filename, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Ошибка: Файл '{filename}' не найден.")
+        raise
+    except json.JSONDecodeError as e:
+        print(f"Ошибка: Некорректный формат JSON в файле '{filename}': {e}")
+        raise
+    except PermissionError:
+        print(f"Ошибка: Нет доступа для чтения файла '{filename}'.")
+        raise
+    except Exception as e:
+        print(f"Ошибка при загрузке файла '{filename}': {e}")
+        raise
 
 
 def calculate_metrics(tracks):
