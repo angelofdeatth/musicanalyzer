@@ -1,4 +1,5 @@
 import json
+import logging
 from collections import Counter
 
 import matplotlib.pyplot as plt
@@ -7,23 +8,34 @@ import plotly.graph_objects as go
 import seaborn as sns
 from plotly.subplots import make_subplots
 
+# Настройка логирования
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
+
 
 def load_data(filename):
     """Загрузка данных из JSON файла"""
+    logger.info(f"Загрузка данных из файла: {filename}")
     try:
         with open(filename, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            data = json.load(f)
+        logger.info(f"Успешно загружено {len(data)} треков")
+        return data
     except FileNotFoundError:
-        print(f"Ошибка: Файл '{filename}' не найден.")
+        logger.error(f"Файл '{filename}' не найден")
         raise
     except json.JSONDecodeError as e:
-        print(f"Ошибка: Некорректный формат JSON в файле '{filename}': {e}")
+        logger.error(f"Некорректный формат JSON в файле '{filename}': {e}")
         raise
     except PermissionError:
-        print(f"Ошибка: Нет доступа для чтения файла '{filename}'.")
+        logger.error(f"Нет доступа для чтения файла '{filename}'")
         raise
     except Exception as e:
-        print(f"Ошибка при загрузке файла '{filename}': {e}")
+        logger.error(f"Неожиданная ошибка при загрузке файла '{filename}': {e}")
         raise
 
 
@@ -129,6 +141,7 @@ def create_seaborn_visualization(tracks):
 
 def print_report(tracks, total_time, top_genre, top_track):
     """Вывод текстового отчёта"""
+    logger.info("Формирование текстового отчёта")
     print("=" * 60)
     print("ОТЧЁТ ПО СТАТИСТИКЕ ПРОСЛУШИВАНИЙ")
     print("=" * 60)
@@ -148,17 +161,23 @@ def print_report(tracks, total_time, top_genre, top_track):
 
 def main():
     """Основная функция"""
-    tracks = load_data('music.json')
+    try:
+        tracks = load_data('music.json')
 
-    total_time, top_genre, top_track = calculate_metrics(tracks)
+        total_time, top_genre, top_track = calculate_metrics(tracks)
 
-    print_report(tracks, total_time, top_genre, top_track)
+        print_report(tracks, total_time, top_genre, top_track)
 
-    print("\nОткрываю интерактивные графики (Plotly)...")
-    create_plotly_visualization(tracks)
+        logger.info("Генерация интерактивных графиков (Plotly)...")
+        create_plotly_visualization(tracks)
 
-    print("Открываю статистические графики (Seaborn)...")
-    create_seaborn_visualization(tracks)
+        logger.info("Генерация статистических графиков (Seaborn)...")
+        create_seaborn_visualization(tracks)
+        
+        logger.info("Анализ завершён успешно")
+    except Exception as e:
+        logger.error(f"Критическая ошибка в процессе выполнения: {e}")
+        raise
 
 
 if __name__ == "__main__":
